@@ -60,6 +60,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+			flex-direction: column;
         }
         .section-content {
             max-width: 60%;
@@ -82,13 +83,27 @@
             border-radius: 5px;
             margin-left: 0;
         }
+		.image-container {
+			display: flex; /* Utilise flexbox pour aligner les images */
+			justify-content: center; /* Centre les images horizontalement */
+			gap: 10px; /* Ajoute un espace entre les images */
+		}
+
+		img {
+			max-width: 100%; /* Assure que l'image ne dépasse pas la largeur de son conteneur */
+			height: auto; /* Conserve le ratio d'aspect de l'image */
+		}
     </style>
 </head>
 <body>
+
+    <h1>Welcome Guide for our dear guest</h1>
+    <p>Salam Alaykum! Here are some tips for your stay:</p>
+	
     <div class="menu">
         <h2 onclick="toggleMenu('ville')">Informations sur la ville</h2>
         <ul id="ville">
-            <li onclick="changeContent('histoire')">Histoire et culture locale</li>
+            <li onclick="changeContent('histoire')">Histoire & Culture</li>		
             <li onclick="changeContent('soukMedina')">SOUK MEDINA</li>
             <li onclick="changeContent('magasin')">MAGASIN COSTUME TRADITIONNEL</li>
             <li onclick="changeContent('plage')">Plage</li>
@@ -100,18 +115,18 @@
             <li onclick="changeContent('superMarket')">Super-Market</li>
             <li onclick="changeContent('poissonnerie')">Poissonnerie & Boucherie</li>
         </ul>
-
+        
         <h2 onclick="toggleMenu('restaurants')">Restaurants et cafés</h2>
         <ul id="restaurants">
-            <li onclick="changeContent('recommandations')">Recommandations de restaurants</li>
-            <li onclick="changeContent('typesCuisine')">Types de cuisine (local, international, etc.)</li>
-            <li onclick="changeContent('horaires')">Horaires d'ouverture et contact</li>
+            <li onclick="changeContent('recommandations')">Manngé poisson? Pourquoi pas</li>
+            <li onclick="changeContent('typesCuisine')">SHWA (grillade) & Tajine</li>
+            <li onclick="changeContent('cafeView')">Café & restaurant front mer</li>
         </ul>
-
+        
         <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
         <ul id="appartement">
             <li onclick="changeContent('description')">Description de l'appartement</li>
-            <li onclick="changeContent('equipements')">Équipements (WiFi, climatisation, cuisine, etc.)</li>
+            <li onclick="changeContent('wifi')">Wifi</li>
             <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
             <li onclick="changeContent('regles')">Règles de la maison</li>
         </ul>
@@ -137,18 +152,6 @@
         function changeContent(section) {
             var content = document.getElementById("dynamicContent");
             switch (section) {
-                case 'histoire':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Histoire et culture locale</h3>
-                                <p>Découvrez l'histoire fascinante de El Jadida:</p>
-                                <a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8" class="link" target="_blank">El Jadida</a>
-                            </div>
-                            <img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
-                        </div>
-                    `;
-                    break;
                 case 'soukMedina':
                     content.innerHTML = `
                         <div class="section">
@@ -156,6 +159,7 @@
                                 <h3>SOUK MEDINA</h3>
                                 <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="link" target="_blank">Localisation</a>
                             </div>
+						<img src="https://i.imgur.com/Txv3nco.jpeg" alt="SOUK MEDINA">
                         </div>
                     `;
                     break;
@@ -166,6 +170,7 @@
                                 <h3>MAGASIN COSTUME TRADITIONNEL</h3>
                                 <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="link" target="_blank">Localisation</a>
                             </div>
+						<img src="https://i.imgur.com/ifP8fPx.jpeg" alt="MAGASIN COSTUME TRADITIONNEL">
                         </div>
                     `;
                     break;
@@ -173,198 +178,312 @@
                     content.innerHTML = `
                         <div class="section">
                             <div class="section-content">
-                                <h3>Plage</h3>
-                                <p>Plage centre ville: <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a></p>
-                                <p>Plage Deauville: <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a></p>
+                                <h3>Plage centre ville:</h3>
+                                <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a>
                             </div>
+						<img src="https://i.imgur.com/K1aotuR.jpeg" alt="Plage centre ville">
+                        </div>
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Plage Deauville El Jadia:</h3>
+                                <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://i.imgur.com/HJkGlq3.jpeg" alt="Plage Deauville El Jadia">
+                        </div>
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Plage haouzia:</h3>
+                                <a href="https://maps.app.goo.gl/3dGNSGXRFkso3Qnc7" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://i.imgur.com/NKkwRQ9.jpeg" alt="Plage haouzia">
+                        </div>
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Plage Sidi Bouzid:</h3>
+                                <a href="https://maps.app.goo.gl/S2HLGC386Sa2qfwHA" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://i.imgur.com/6uGQKY7.jpeg" alt="Plage Sidi Bouzid">
                         </div>
                     `;
                     break;
-                default:
-                    content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
-            }
-        }
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu d'Informations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .menu {
-            background-color: #EBACA2;
-            color: #4A919E;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .menu h2 {
-            margin: 0;
-            padding: 10px 0;
-            cursor: pointer;
-            border-bottom: 1px solid #4A919E;
-            color: white;
-        }
-        .menu ul {
-            list-style-type: none;
-            padding: 0;
-            display: none;
-            margin: 10px 0;
-        }
-        .menu ul li {
-            margin: 8px 0;
-            padding: 8px;
-            background-color: #4A919E;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            color: white;
-        }
-        .menu ul li:hover {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-        }
-        .content {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .section-content {
-            max-width: 60%;
-        }
-        .section h3 {
-            color: #3498db;
-        }
-        .section p, .section a {
-            margin: 10px 0;
-            text-align: left;
-        }
-        .link {
-            color: #e74c3c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .section img {
-            width: 300px;
-            height: auto;
-            border-radius: 5px;
-            margin-left: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="menu">
-        <h2 onclick="toggleMenu('ville')">Informations sur la ville</h2>
-        <ul id="ville">
-            <li onclick="changeContent('histoire')">Histoire et culture locale</li>
-            <li onclick="changeContent('soukMedina')">SOUK MEDINA</li>
-            <li onclick="changeContent('magasin')">MAGASIN COSTUME TRADITIONNEL</li>
-            <li onclick="changeContent('plage')">Plage</li>
-            <li onclick="changeContent('parc')">Parc</li>
-            <li onclick="changeContent('mosquee')">MOSQUÉE POUR LE VENDREDI</li>
-            <li onclick="changeContent('boulangerie')">BOULANGERIE</li>
-            <li onclick="changeContent('epicerie')">Épicerie, alimentation générale</li>
-            <li onclick="changeContent('miniMarket')">Mini-Market</li>
-            <li onclick="changeContent('superMarket')">Super-Market</li>
-            <li onclick="changeContent('poissonnerie')">Poissonnerie & Boucherie</li>
-        </ul>
-
-        <h2 onclick="toggleMenu('restaurants')">Restaurants et cafés</h2>
-        <ul id="restaurants">
-            <li onclick="changeContent('recommandations')">Recommandations de restaurants</li>
-            <li onclick="changeContent('typesCuisine')">Types de cuisine (local, international, etc.)</li>
-            <li onclick="changeContent('horaires')">Horaires d'ouverture et contact</li>
-        </ul>
-
-        <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
-        <ul id="appartement">
-            <li onclick="changeContent('description')">Description de l'appartement</li>
-            <li onclick="changeContent('equipements')">Équipements (WiFi, climatisation, cuisine, etc.)</li>
-            <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
-            <li onclick="changeContent('regles')">Règles de la maison</li>
-        </ul>
-    </div>
-
-    <div class="content" id="dynamicContent">
-        <h3>Bienvenue!</h3>
-        <p>Sélectionnez un sous-menu pour voir les informations ici.</p>
-    </div>
-
-    <script>
-        function toggleMenu(id) {
-            var menus = document.querySelectorAll('.menu ul');
-            menus.forEach(function(menu) {
-                if (menu.id !== id) {
-                    menu.style.display = "none";
-                }
-            });
-            var selectedMenu = document.getElementById(id);
-            selectedMenu.style.display = selectedMenu.style.display === "none" ? "block" : "none";
-        }
-
-        function changeContent(section) {
-            var content = document.getElementById("dynamicContent");
-            switch (section) {
-                case 'histoire':
+				case 'parc':
                     content.innerHTML = `
                         <div class="section">
                             <div class="section-content">
-                                <h3>Histoire et culture locale</h3>
-                                <p>Découvrez l'histoire fascinante de El Jadida:</p>
-                                <a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8" class="link" target="_blank">El Jadida</a>
+                                <h3>Parc</h3>
+                                <a href="https://maps.app.goo.gl/k36DoTKcbXaKE62P6" class="link" target="_blank">Localisation</a>
                             </div>
-                            <img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
+						<img src="https://i.imgur.com/KOb9XyY.jpeg" alt="Parc Hassan II">
                         </div>
                     `;
                     break;
-                case 'soukMedina':
+				case 'boulangerie':
                     content.innerHTML = `
                         <div class="section">
                             <div class="section-content">
-                                <h3>SOUK MEDINA</h3>
-                                <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="link" target="_blank">Localisation</a>
+                                <h3>La Tartine</h3>
+                                <a href="https://maps.app.goo.gl/aBvo42QByDHSkNQK9" class="link" target="_blank">Localisation</a>
                             </div>
+						<img src="https://lh3.googleusercontent.com/p/AF1QipO4T-nvq_bYZGTOwk_kEZciE18nnidcHoA6jd-9=s680-w680-h510" alt="La Tartine">
+                        </div>
+						                        <div class="section">
+                            <div class="section-content">
+                                <h3>Le Régale</h3>
+                                <a href="https://maps.app.goo.gl/N7LNjHj6AZsh2T1W6" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/53/90/33/patisserie-le-regal.jpg?w=900&h=500&s=1" alt="Le Régale">
                         </div>
                     `;
                     break;
-                case 'magasin':
+				case 'mosquee':
                     content.innerHTML = `
                         <div class="section">
                             <div class="section-content">
-                                <h3>MAGASIN COSTUME TRADITIONNEL</h3>
-                                <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="link" target="_blank">Localisation</a>
+                                <h3>Mosquée Belhamdounia</h3>
+                                <a href="https://maps.app.goo.gl/UQ1BERRxUVrFovbW9" class="link" target="_blank">Localisation</a>
                             </div>
+						<img src="https://lh3.googleusercontent.com/p/AF1QipNMOFTcPMUTxlYUrQAWj2tgNC8030Ok_9hlpHfU=s680-w680-h510" alt="Mosquée Belhamdounia">
+                        </div>
+						                        <div class="section">
+                            <div class="section-content">
+                                <h3>Mosquée مسجد الإمام علي</h3>
+                                <a href="https://maps.app.goo.gl/cg1zkyyuZyDe3NiH9" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://lh3.googleusercontent.com/p/AF1QipO2D1L8fAFJ67YNremohA--0bJ3MXMTolqrZWge=s680-w680-h510" alt="Mosquée مسجد الإمام علي">
+                        </div>
+						</div>
+						<div class="section">
+                            <div class="section-content">
+                                <h3>La grande mosquée de Mazagane</h3>
+                                <a href="https://maps.app.goo.gl/R6TdKiFT42oJ4JYt9" class="link" target="_blank">Localisation</a>
+                            </div>
+						<img src="https://thumbs.dreamstime.com/b/mosqu%C3%A9e-%C3%A0-el-jadida-maroc-23552014.jpg" alt="La grande mosquée de Mazagane">
                         </div>
                     `;
                     break;
-                case 'plage':
+				case 'poissonnerie':
+                    content.innerHTML = `
+						 <div class="section">
+								<div class="section-content">
+									<h2>Fruit and Vegetables</h2>
+									<p>Find fresh fruits and vegetables here:</p>
+									<a href="https://maps.app.goo.gl/u6nxLxBYz5HQwrpA9?g_st=com.google.maps.preview.copy" class="link" target="_blank">Fruit & Vegetable Market</a>
+								</div>
+								<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3d/67/00/flores-pescados-frutas.jpg?w=1200&h=-1&s=1" alt="Fruit and Vegetables">
+							</div>
+                    `;
+                    break;
+				case 'superMarket':
+                    content.innerHTML = `
+						 <div class="section">
+								<div class="section-content">
+									<h2>Super Market</h2>
+									<p></p>
+									<a href="https://maps.app.goo.gl/toMxYkme4cm5Xi6A7" class="link" target="_blank">Marjane Market</a>
+								</div>
+								<img src="https://ot-eljadida.com/uploads/images/visiter/thumbs/6179729809b45_marjane-market-el-jadida-800x533.png" alt="Marjane Market">
+							</div>
+                    `;
+                    break;
+				case 'miniMarket':
+                    content.innerHTML = `
+						 <div class="section">
+								<div class="section-content">
+									<h2>Mini Market</h2>
+									<p></p>
+									<a href="https://g.co/kgs/5LLGfst" class="link" target="_blank">BIM Store</a>
+								</div>
+								<img src="https://www.challenge.ma/wp-content/uploads/2013/04/BIM-300x225.jpg" alt="BIM Store">
+							</div>
+                    `;
+                    break;
+				case 'epicerie':
+                    content.innerHTML = `
+						 <div class="section">
+								<div class="section-content">
+									<h2>Zrigovich alimentation</h2>
+									<p></p>
+									<a href="https://maps.app.goo.gl/LhJECoEnuJsQ24si8" class="link" target="_blank">Zrigovich alimentation</a>
+								</div>
+								<img src="" alt="Zrigovich alimentation">
+							</div>
+						 <div class="section">
+								<div class="section-content">
+									<h2>Alimentation Asmar</h2>
+									<p></p>
+									<a href="https://maps.app.goo.gl/GxpYtQ3U3MuKx3jB7" class="link" target="_blank">Alimentation Asmar</a>
+								</div>
+								<img src="" alt="Alimentation Asmar">
+							</div>
+                    `;
+                    break;
+				case 'histoire':
+                    content.innerHTML = `
+							<div class="section">
+								<div class="section-content">
+									<h2>Historical Place</h2>
+									<p>Explore the history of El Jadida:</p>
+									<a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8?g_st=com.google.maps.preview.copy" class="link" target="_blank">El Jadida</a>
+								</div>
+								<img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
+							</div>
+
+							<div class="section">
+								<div class="section-content">
+									<h2>Walking Itinerary - El Jadida</h2>
+									<p>Enjoy a scenic walk around El Jadida:</p>
+									<a href="https://fr.wikiloc.com/itineraires-marcher/el-yadida-24284418" class="link" target="_blank">El Jadida Itinerary</a>
+								</div>
+								<img src="https://i.imgur.com/AeujXL8.jpeg" alt="El Jadida Itinerary">
+							</div>
+
+							<div class="section">
+								<div class="section-content">
+									<h2>Azemour</h2>
+									<p>Discover the town of Azemour:</p>
+									<a href="https://maps.app.goo.gl/6EsSHbAL3oBYgU1f7?g_st=com.google.maps.preview.copy" class="link" target="_blank">Azemour</a>
+								</div>
+								<img src="https://daytrip2.imgix.net/azemmour1.jpg?auto=compress%2Cenhance%2Cformat&w=768&h=560&fit=crop&q=30" alt="Azemour">
+							</div>
+
+							<div class="section">
+								<div class="section-content">
+									<h2>Walking Itinerary - Azemour</h2>
+									<p>Explore Azemour's unique paths:</p>
+									<a href="https://fr.wikiloc.com/itineraires-marcher/azemmour-24294473" class="link" target="_blank">Azemour Itinerary</a>
+								</div>
+								<img src="https://i.imgur.com/YdZutIr.jpeg" alt="Azemour Itinerary">
+							</div>
+                    `;
+                    break;
+                case 'recommandations':
                     content.innerHTML = `
                         <div class="section">
                             <div class="section-content">
-                                <h3>Plage</h3>
-                                <p>Plage centre ville: <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a></p>
-                                <p>Plage Deauville: <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a></p>
+                                <h3>Recommandations de restaurants</h3>
+                                <p>Voici quelques recommandations de restaurants populaires...</p>
+                            </div>
+                        </div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>MUCHO</h2>
+									<a href="https://maps.app.goo.gl/wCPNchCviZBLF2zT9" class="link" target="_blank">Mucho Localisation</a>
+								</div>
+								<img src="https://lh3.googleusercontent.com/p/AF1QipMg-A0Em8D1qaC-MEKraMKAeW1eQb7jnaad3lhT=s680-w680-h510" alt="MUCHO">
+						</div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>Snack El Bahri </h2>
+
+									<a href="https://maps.app.goo.gl/9H1iD872VJQYSFe8A" class="link" target="_blank">Snack El Bahri</a>
+								</div>
+								<img src="https://res.cloudinary.com/farouk/image/upload/t_small/AS5WE8K1YL" alt="Snack El Bahri">
+						</div>
+						
+												<div class="section">
+								<div class="section-content">
+									<h2>Marché central </h2>
+                                <p>Choisissez votre poisson frais, puis laissez-le griller ou frire dans les restaurants juste en face pour savourer un délicieux repas...</p>
+									<a href="https://maps.app.goo.gl/SzsZH7GE11K3KQdr8" class="link" target="_blank">Marché central</a>
+								</div>
+								<img src="https://c7.alamy.com/compfr/mcgyy3/l-heure-du-dejeuner-restaurant-terrasses-marche-central-le-marche-central-casablanca-maroc-afrique-du-nord-mcgyy3.jpg" alt="Marché central">
+						</div>
+                    `;
+                    break;
+                case 'typesCuisine':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Recommandations de restaurants</h3>
+                                <p>Voici quelques recommandations de restaurants populaires...</p>
+                            </div>
+                        </div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>SHWA & Tajine</h2>
+									<p>Viande fraîche directement de la boucherie ! Choisissez votre pièce préférée et laissez-vous séduire par l’odeur alléchante d'une grillade savoureuse. Une expérience gourmande à ne pas manquer !...</p>
+									<a href="https://maps.app.goo.gl/AdXegMjAYu1wEuc66" class="link" target="_blank">Shwa & Tajine</a>
+								</div>
+								<div class="image-container">
+									<img src="https://lh5.googleusercontent.com/p/AF1QipNWd3q1jHSQjGBBgQNHBSTgHGb9J9hLeXIv7Y_h=w600-h650-p-k-no" alt="Shwa">
+									<img src="https://lh5.googleusercontent.com/p/AF1QipPDKdbLYMK9q2tav5-MWZUNNvZUvA3zNiXSYSRJ=w600-h988-p-k-no" alt="Tajine">
+								</div>
+						</div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>Tajine Beldi à la fôret </h2>
+
+									<a href="https://maps.app.goo.gl/tt1HgFcZkGu74SDD9" class="link" target="_blank">Tajine Beldi</a>
+								</div>
+								
+								<div class="image-container">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipOXjfp7PiiuEudoY94LYubp5bYjOCzbWAxInnTy=w600-h988-p-k-no" alt="Tajine Beldi">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipPm4m6aK0FLT6RcqeeIgq9rodC5Vcjdmt2h9m_Y=w600-h321-p-k-no" alt="Tajine Beldi">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipM_eFPjb4-rxQumrohO_Ltl3Cj6GOtWf8d2ucPf=w600-h321-p-k-no" alt="Tajine Beldi">
+								</div>
+						</div>
+						
+
+                    `;
+                    break;
+                case 'cafeView':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Recommandations de restaurants</h3>
+                                <p>Voici quelques recommandations de restaurants populaires...</p>
+                            </div>
+                        </div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>La plage</h2>
+									<a href="https://g.co/kgs/j52vucu" class="link" target="_blank">La Plage Localisation</a>
+								</div>
+								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4EUWyqoV914cib2zvXAGtUteo3z3cUZHBQw&s" alt="La plage">
+						</div>
+						
+						<div class="section">
+								<div class="section-content">
+									<h2>Chez Laura </h2>
+
+									<a href="https://maps.app.goo.gl/CV33f2j55aKvZ52t7" class="link" target="_blank">Chez Laura</a>
+								</div>
+								<img src="https://lh5.googleusercontent.com/p/AF1QipOYGThWWu0ChEFIqhogaeqM2CVnP1Kad0kgQHLI=w600-h988-p-k-no" alt="chez Laura">
+						</div>
+						
+
+                    `;
+                    break;
+                case 'wifi':
+                    content.innerHTML = `
+						<div class="section">
+							<div class="section-content">
+								<h2>WiFi Access</h2>
+								<p><strong>WiFi Password:</strong> 4DFHDbQR</p>
+							</div>
+							<img src="https://i.imgur.com/IN7NIkh.jpeg" alt="WiFi Name">
+						</div>
+						
+						<div class="section">
+							<div class="section-content">
+								<h2>WiFi EXTENDER Access</h2>
+								<p><strong>WiFi Password:</strong> 4DFHDbQR</p>
+							</div>
+							<img src="https://i.imgur.com/L2UgBnI.png" alt="WiFi Name">
+						</div>
+                    `;
+                    break;
+                case 'description':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Description de l'appartement</h3>
+                                <p>Découvrez le confort de notre appartement avec toutes les commodités nécessaires...</p>
                             </div>
                         </div>
                     `;
