@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu d'Informations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .menu {
+            background-color: #EBACA2;
+            color: #4A919E;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .menu h2 {
+            margin: 0;
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 1px solid #4A919E;
+            color: white;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+            margin: 10px 0;
+        }
+        .menu ul li {
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #4A919E;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            color: white;
+        }
+        .menu ul li:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-content {
+            max-width: 60%;
+        }
+        .section h3 {
+            color: #3498db;
+        }
+        .section p, .section a {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .link {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section img {
+            width: 300px;
+            height: auto;
+            border-radius: 5px;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2 onclick="toggleMenu('ville')">Informations sur la ville</h2>
+        <ul id="ville">
+            <li onclick="changeContent('histoire')">Histoire et culture locale</li>
+            <li onclick="changeContent('soukMedina')">SOUK MEDINA</li>
+            <li onclick="changeContent('magasin')">MAGASIN COSTUME TRADITIONNEL</li>
+            <li onclick="changeContent('plage')">Plage</li>
+            <li onclick="changeContent('parc')">Parc</li>
+            <li onclick="changeContent('mosquee')">MOSQUÉE POUR LE VENDREDI</li>
+            <li onclick="changeContent('boulangerie')">BOULANGERIE</li>
+            <li onclick="changeContent('epicerie')">Épicerie, alimentation générale</li>
+            <li onclick="changeContent('miniMarket')">Mini-Market</li>
+            <li onclick="changeContent('superMarket')">Super-Market</li>
+            <li onclick="changeContent('poissonnerie')">Poissonnerie & Boucherie</li>
+        </ul>
+
+        <h2 onclick="toggleMenu('restaurants')">Restaurants et cafés</h2>
+        <ul id="restaurants">
+            <li onclick="changeContent('recommandations')">Recommandations de restaurants</li>
+            <li onclick="changeContent('typesCuisine')">Types de cuisine (local, international, etc.)</li>
+            <li onclick="changeContent('horaires')">Horaires d'ouverture et contact</li>
+        </ul>
+
+        <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
+        <ul id="appartement">
+            <li onclick="changeContent('description')">Description de l'appartement</li>
+            <li onclick="changeContent('equipements')">Équipements (WiFi, climatisation, cuisine, etc.)</li>
+            <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
+            <li onclick="changeContent('regles')">Règles de la maison</li>
+        </ul>
+    </div>
+
+    <div class="content" id="dynamicContent">
+        <h3>Bienvenue!</h3>
+        <p>Sélectionnez un sous-menu pour voir les informations ici.</p>
+    </div>
+
+    <script>
+        function toggleMenu(id) {
+            var menus = document.querySelectorAll('.menu ul');
+            menus.forEach(function(menu) {
+                if (menu.id !== id) {
+                    menu.style.display = "none";
+                }
+            });
+            var selectedMenu = document.getElementById(id);
+            selectedMenu.style.display = selectedMenu.style.display === "none" ? "block" : "none";
+        }
+
+        function changeContent(section) {
+            var content = document.getElementById("dynamicContent");
+            switch (section) {
+                case 'histoire':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Histoire et culture locale</h3>
+                                <p>Découvrez l'histoire fascinante de El Jadida:</p>
+                                <a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8" class="link" target="_blank">El Jadida</a>
+                            </div>
+                            <img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
+                        </div>
+                    `;
+                    break;
+                case 'soukMedina':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>SOUK MEDINA</h3>
+                                <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="link" target="_blank">Localisation</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'magasin':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>MAGASIN COSTUME TRADITIONNEL</h3>
+                                <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="link" target="_blank">Localisation</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'plage':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Plage</h3>
+                                <p>Plage centre ville: <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a></p>
+                                <p>Plage Deauville: <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a></p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu d'Informations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .menu {
+            background-color: #EBACA2;
+            color: #4A919E;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .menu h2 {
+            margin: 0;
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 1px solid #4A919E;
+            color: white;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+            margin: 10px 0;
+        }
+        .menu ul li {
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #4A919E;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            color: white;
+        }
+        .menu ul li:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-content {
+            max-width: 60%;
+        }
+        .section h3 {
+            color: #3498db;
+        }
+        .section p, .section a {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .link {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section img {
+            width: 300px;
+            height: auto;
+            border-radius: 5px;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2 onclick="toggleMenu('ville')">Informations sur la ville</h2>
+        <ul id="ville">
+            <li onclick="changeContent('histoire')">Histoire et culture locale</li>
+            <li onclick="changeContent('soukMedina')">SOUK MEDINA</li>
+            <li onclick="changeContent('magasin')">MAGASIN COSTUME TRADITIONNEL</li>
+            <li onclick="changeContent('plage')">Plage</li>
+            <li onclick="changeContent('parc')">Parc</li>
+            <li onclick="changeContent('mosquee')">MOSQUÉE POUR LE VENDREDI</li>
+            <li onclick="changeContent('boulangerie')">BOULANGERIE</li>
+            <li onclick="changeContent('epicerie')">Épicerie, alimentation générale</li>
+            <li onclick="changeContent('miniMarket')">Mini-Market</li>
+            <li onclick="changeContent('superMarket')">Super-Market</li>
+            <li onclick="changeContent('poissonnerie')">Poissonnerie & Boucherie</li>
+        </ul>
+
+        <h2 onclick="toggleMenu('restaurants')">Restaurants et cafés</h2>
+        <ul id="restaurants">
+            <li onclick="changeContent('recommandations')">Recommandations de restaurants</li>
+            <li onclick="changeContent('typesCuisine')">Types de cuisine (local, international, etc.)</li>
+            <li onclick="changeContent('horaires')">Horaires d'ouverture et contact</li>
+        </ul>
+
+        <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
+        <ul id="appartement">
+            <li onclick="changeContent('description')">Description de l'appartement</li>
+            <li onclick="changeContent('equipements')">Équipements (WiFi, climatisation, cuisine, etc.)</li>
+            <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
+            <li onclick="changeContent('regles')">Règles de la maison</li>
+        </ul>
+    </div>
+
+    <div class="content" id="dynamicContent">
+        <h3>Bienvenue!</h3>
+        <p>Sélectionnez un sous-menu pour voir les informations ici.</p>
+    </div>
+
+    <script>
+        function toggleMenu(id) {
+            var menus = document.querySelectorAll('.menu ul');
+            menus.forEach(function(menu) {
+                if (menu.id !== id) {
+                    menu.style.display = "none";
+                }
+            });
+            var selectedMenu = document.getElementById(id);
+            selectedMenu.style.display = selectedMenu.style.display === "none" ? "block" : "none";
+        }
+
+        function changeContent(section) {
+            var content = document.getElementById("dynamicContent");
+            switch (section) {
+                case 'histoire':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Histoire et culture locale</h3>
+                                <p>Découvrez l'histoire fascinante de El Jadida:</p>
+                                <a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8" class="link" target="_blank">El Jadida</a>
+                            </div>
+                            <img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
+                        </div>
+                    `;
+                    break;
+                case 'soukMedina':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>SOUK MEDINA</h3>
+                                <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="link" target="_blank">Localisation</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'magasin':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>MAGASIN COSTUME TRADITIONNEL</h3>
+                                <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="link" target="_blank">Localisation</a>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'plage':
+                    content.innerHTML = `
+                        <div class="section">
+                            <div class="section-content">
+                                <h3>Plage</h3>
+                                <p>Plage centre ville: <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a></p>
+                                <p>Plage Deauville: <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a></p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
+            }
+        }
+    </script>
+</body>
+</html>
