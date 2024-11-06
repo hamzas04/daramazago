@@ -145,6 +145,7 @@
             <li onclick="changeContent('recommandations')">Manngé poisson? Pourquoi pas</li>
             <li onclick="changeContent('typesCuisine')">SHWA (grillade) & Tajine</li>
             <li onclick="changeContent('cafeView')">Café & restaurant front mer</li>
+	    <li onclick="changeContent('fastFood')">Near fast food (less 4min walk)</li>
         </ul>
         
         <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
@@ -510,6 +511,23 @@
                                 <p>Découvrez le confort de notre appartement avec toutes les commodités nécessaires...</p>
                             </div>
                         </div>
+                    `;
+                    break;
+                case 'fastFood':
+                    content.innerHTML = `
+						<div class="section">
+								<div class="section-content">
+									<h2>Le FIGUIG Mazagan </h2>
+
+									<a href="https://maps.app.goo.gl/KpfpKV4ZxJargHyb8" class="link" target="_blank">Le FIGUIG Mazagan</a>
+								</div>
+								
+								<div class="image-container">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipPKlHiXnWYSE0-Norg1gjQ1lSF1eLcUH8F1USvr=w600-h988-p-k-no" alt="Le FIGUIG Mazagan">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipPm4m6aK0FLT6RcqeeIgq9rodC5Vcjdmt2h9m_Y=w600-h321-p-k-no" alt="Tajine Beldi">
+								<img src="https://lh5.googleusercontent.com/p/AF1QipM_eFPjb4-rxQumrohO_Ltl3Cj6GOtWf8d2ucPf=w600-h321-p-k-no" alt="Tajine Beldi">
+								</div>
+						</div>
                     `;
                     break;
                 default:
