@@ -166,6 +166,7 @@
 	    <li onclick="changeContent('bruit')">Bruit</li>
 	    <li onclick="changeContent('securite')">Sécurité</li>
 	    <li onclick="changeContent('equipements')">Utilisation des équipements</li>
+	    <li onclick="changeContent('mgharba')">Pour les marocains/les personnes d'origine marocain avec passeport étranger</li>
 	    <li onclick="changeContent('contact')">Contact</li>
 	</ul>
     </div>
@@ -568,6 +569,9 @@
 	            break;
 	        case 'contact':
 	            content.innerHTML = "<h3>Contact</h3><p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>";
+	            break;
+		case 'mgharba':
+	            content.innerHTML = "<h3>Contact</h3><p>🇲🇦👩‍❤️‍👨Nous tenons à vous informer qu'il s'agit d'un établissement soumis à la réglementation marocaine. Par conséquent, les couples dont l'une des personnes possède un passeport marocain ou de parents marocains devront présenter un acte de mariage valide. Nous vous remercions de votre compréhension et restons à votre disposition pour toute question.</p>";
 	            break;
                 default:
                     content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
