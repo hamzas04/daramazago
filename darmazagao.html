@@ -155,6 +155,19 @@
             <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
             <li onclick="changeContent('regles')">Règles de la maison</li>
         </ul>
+
+	<!-- Sous-menu pour les règles de la maison -->
+	<ul id="regles" style="display: none; padding-left: 20px;">
+	    <li onclick="changeContent('visiteurs')">Les visiteurs non enregistrés</li>
+	    <li onclick="changeContent('respect')">Respect des lieux</li>
+	    <li onclick="changeContent('proprete')">Propreté</li>
+	    <li onclick="changeContent('fumeurs')">Fumeurs</li>
+	    <li onclick="changeContent('animaux')">Animaux</li>
+	    <li onclick="changeContent('bruit')">Bruit</li>
+	    <li onclick="changeContent('securite')">Sécurité</li>
+	    <li onclick="changeContent('equipements')">Utilisation des équipements</li>
+	    <li onclick="changeContent('contact')">Contact</li>
+	</ul>
     </div>
 
     <div class="content" id="dynamicContent">
@@ -529,6 +542,33 @@
 						</div>
                     `;
                     break;
+		case 'visiteurs':
+	            content.innerHTML = "<h3>Les visiteurs non enregistrés</h3><p>Pour des raisons de sécurité, seuls les visiteurs enregistrés sont autorisés à entrer.</p>";
+	            break;
+	        case 'respect':
+	            content.innerHTML = "<h3>Respect des lieux</h3><p>Merci de respecter l'appartement et les équipements fournis.</p>";
+	            break;
+	        case 'proprete':
+	            content.innerHTML = "<h3>Propreté</h3><p>Veuillez garder l'appartement propre et ordonné pendant votre séjour.</p>";
+	            break;
+	        case 'fumeurs':
+	            content.innerHTML = "<h3>Fumeurs</h3><p>Il est strictement interdit de fumer dans l'appartement.</p>";
+	            break;
+	        case 'animaux':
+	            content.innerHTML = "<h3>Animaux</h3><p>Les animaux ne sont pas autorisés dans l'appartement.</p>";
+	            break;
+	        case 'bruit':
+	            content.innerHTML = "<h3>Bruit</h3><p>Veuillez respecter le calme et ne pas faire de bruit excessif, surtout la nuit.</p>";
+	            break;
+	        case 'securite':
+	            content.innerHTML = "<h3>Sécurité</h3><p>Assurez-vous de bien fermer les portes et fenêtres lorsque vous quittez l'appartement.</p>";
+	            break;
+	        case 'equipements':
+	            content.innerHTML = "<h3>Utilisation des équipements</h3><p>Utilisez les équipements avec soin pour éviter toute dégradation.</p>";
+	            break;
+	        case 'contact':
+	            content.innerHTML = "<h3>Contact</h3><p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>";
+	            break;
                 default:
                     content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
             }
