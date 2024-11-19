@@ -1,0 +1,321 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.hero-section {
+  background-blend-mode: overlay;
+  color: #ffffff;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #765a4a, #fdcb5d);
+
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+}
+
+h2 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.card-title {
+  color: #007BFF;
+  font-size: 1.2rem;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  border: none;
+}
+#histoire-culture {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+}
+
+#histoire-culture h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #007BFF;
+}
+
+
+
+
+.card-text {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+#histoire-culture h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+
+
+.card-title {
+  font-size: 1.5rem;
+  color: #007BFF;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+#map-container {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#map-placeholder {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+#map-placeholder img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.btn-outline-primary {
+  border-color: #007BFF;
+  color: #007BFF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007BFF;
+  color: white;
+}
+/* Style for the beach cards */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.card-title {
+  font-size: 1.25rem;
+  color: #007BFF;
+}
+
+.d-flex {
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007BFF;
+  color: white;
+}
+/* Global Styling */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+
+
+.btn-outline-primary {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007BFF;
+  color: white;
+}
+/* Global Styling */
+.bg-arabic-pattern {
+  background-image: url('https://img.freepik.com/free-vector/gradient-golden-arabic-pattern_23-2148900010.jpg'); /* Subtle Islamic pattern */
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px 0;
+}
+
+.text-golden {
+  color: #D4AF37;
+  font-family: 'Amiri', serif;
+  letter-spacing: 1px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.btn-outline-golden {
+  color: #D4AF37;
+  border: 2px solid #D4AF37;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-golden:hover {
+  background-color: #D4AF37;
+  color: #fff;
+}
+
+
+}
+.image-container {
+  width: 100%;
+  height: 200px; /* Ajustez la hauteur selon vos besoins */
+  overflow: hidden; /* Masque tout dépassement de l'image */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Utilisez 'cover' pour remplir sans déformer */
+  object-position: center top; /* Positionne l'image pour montrer la partie supérieure */
+  border-radius: 12px 12px 0 0; /* Assure que les coins restent arrondis */
+}
+.text-golden {
+  color: #DAA520;
+}
+
+.btn-outline-golden {
+  color: #DAA520;
+  border-color: #DAA520;
+}
+
+.btn-outline-golden:hover {
+  background-color: #DAA520;
+  color: white;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+  .text-golden {
+    color: #DAA520;
+  }
+  .btn-outline-golden {
+    color: #DAA520;
+    border: 1px solid #DAA520;
+  }
+  .btn-outline-golden:hover {
+    background-color: #DAA520;
+    color: #fff;
+  }
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #DAA520;
+    margin-bottom: 1rem;
+  }
+   /* Design principal */
+  .text-golden {
+    color: #DAA520;
+  }
+  .bg-light {
+    background-color: #f8f9fa !important;
+  }
+  .card {
+    border-radius: 10px;
+  }
+  .rules-section {
+    border: 2px solid #DAA520;
+  }
+  .list-group-item {
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .list-group-item:hover {
+    background-color: #f1f1f1;
+  }
+  .btn-outline-golden {
+    color: #DAA520;
+    border: 1px solid #DAA520;
+  }
+  .btn-outline-golden:hover {
+    background-color: #DAA520;
+    color: #fff;
+  }
+  .border-golden {
+    border: 2px solid #DAA520;
+  }
+  .card-img-top {
+  object-fit: cover;
+  height: 100px; /* Ajustez la hauteur en fonction de vos besoins */
+  width: 100%; /* S'assure que l'image remplit horizontalement la carte */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
