@@ -384,117 +384,135 @@
   <div class="container">
     <h2 class="text-center text-golden mb-5">Services et Commerces de Quartier</h2>
     
-    <!-- Grid Container -->
-    <div class="row g-4">
-      
-      <!-- Boulangeries -->
-      <div class="col-12">
-        <h3 class="category-title">Boulangeries</h3>
-        <div class="row g-3">
-          <!-- La Tartine -->
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <img src="https://lh3.googleusercontent.com/p/AF1QipO4T-nvq_bYZGTOwk_kEZciE18nnidcHoA6jd-9=s680-w680-h510" 
-                   class="card-img-top rounded-top" alt="La Tartine">
-              <div class="card-body text-center">
-                <h5 class="card-title">La Tartine</h5>
-                <a href="https://maps.app.goo.gl/aBvo42QByDHSkNQK9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-          <!-- Le Régale -->
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/53/90/33/patisserie-le-regal.jpg?w=900&h=500&s=1" 
-                   class="card-img-top rounded-top" alt="Le Régale">
-              <div class="card-body text-center">
-                <h5 class="card-title">Le Régale</h5>
-                <a href="https://maps.app.goo.gl/N7LNjHj6AZsh2T1W6" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Épiceries -->
-      <div class="col-12">
-        <h3 class="category-title">Épiceries</h3>
-        <div class="row g-3">
-          <!-- Zrigovich Alimentation -->
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <div class="card-body text-center">
-                <h5 class="card-title">Zrigovich Alimentation</h5>
-                <a href="https://maps.app.goo.gl/LhJECoEnuJsQ24si8" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-          <!-- Alimentation Asmar -->
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <div class="card-body text-center">
-                <h5 class="card-title">Alimentation Asmar</h5>
-                <a href="https://maps.app.goo.gl/GxpYtQ3U3MuKx3jB7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mini-Market -->
-      <div class="col-12">
-        <h3 class="category-title">Mini-Market</h3>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <img src="https://www.challenge.ma/wp-content/uploads/2013/04/BIM-300x225.jpg" 
-                   class="card-img-top rounded-top" alt="BIM Store">
-              <div class="card-body text-center">
-                <h5 class="card-title">BIM Store</h5>
-                <a href="https://g.co/kgs/5LLGfst" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Super-Market -->
-      <div class="col-12">
-        <h3 class="category-title">Super-Market</h3>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <img src="https://ot-eljadida.com/uploads/images/visiter/thumbs/6179729809b45_marjane-market-el-jadida-800x533.png" 
-                   class="card-img-top rounded-top" alt="Marjane Market">
-              <div class="card-body text-center">
-                <h5 class="card-title">Marjane Market</h5>
-                <a href="https://maps.app.goo.gl/toMxYkme4cm5Xi6A7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Poissonnerie & Boucherie -->
-      <div class="col-12">
-        <h3 class="category-title">Poissonnerie & Boucherie</h3>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="card shadow border-0">
-              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3d/67/00/flores-pescados-frutas.jpg?w=1200&h=-1&s=1" 
-                   class="card-img-top rounded-top" alt="Fruit and Vegetables">
-              <div class="card-body text-center">
-                <h5 class="card-title">Fruit & Vegetable Market</h5>
-                <a href="https://maps.app.goo.gl/u6nxLxBYz5HQwrpA9?g_st=com.google.maps.preview.copy" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="4"></button>
       </div>
       
+      <!-- Carousel Items -->
+      <div class="carousel-inner">
+        <!-- Slide 1: Boulangeries -->
+        <div class="carousel-item active">
+          <h3 class="category-title text-center mb-4 text-golden bg-dark-opacity">Boulangeries</h3>
+          <div class="row g-3">
+            <!-- La Tartine -->
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipO4T-nvq_bYZGTOwk_kEZciE18nnidcHoA6jd-9=s680-w680-h510" 
+                     class="card-img-top rounded-top" alt="La Tartine">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">La Tartine</h5>
+                  <a href="https://maps.app.goo.gl/aBvo42QByDHSkNQK9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+            <!-- Le Régale -->
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/53/90/33/patisserie-le-regal.jpg?w=900&h=500&s=1" 
+                     class="card-img-top rounded-top" alt="Le Régale">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">Le Régale</h5>
+                  <a href="https://maps.app.goo.gl/N7LNjHj6AZsh2T1W6" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2: Épiceries -->
+        <div class="carousel-item">
+          <h3 class="category-title text-center mb-4 text-golden bg-dark-opacity">Épiceries</h3>
+          <div class="row g-3">
+            <!-- Zrigovich Alimentation -->
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">Zrigovich Alimentation</h5>
+                  <a href="https://maps.app.goo.gl/LhJECoEnuJsQ24si8" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+            <!-- Alimentation Asmar -->
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">Alimentation Asmar</h5>
+                  <a href="https://maps.app.goo.gl/GxpYtQ3U3MuKx3jB7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3: Mini-Market -->
+        <div class="carousel-item">
+          <h3 class="category-title text-center mb-4 text-golden bg-dark-opacity">Mini-Market</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <img src="https://www.challenge.ma/wp-content/uploads/2013/04/BIM-300x225.jpg" 
+                     class="card-img-top rounded-top" alt="BIM Store">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">BIM Store</h5>
+                  <a href="https://g.co/kgs/5LLGfst" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 4: Super-Market -->
+        <div class="carousel-item">
+          <h3 class="category-title text-center mb-4 text-golden bg-dark-opacity">Super-Market</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <img src="https://ot-eljadida.com/uploads/images/visiter/thumbs/6179729809b45_marjane-market-el-jadida-800x533.png" 
+                     class="card-img-top rounded-top" alt="Marjane Market">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">Marjane Market</h5>
+                  <a href="https://maps.app.goo.gl/toMxYkme4cm5Xi6A7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 5: Poissonnerie & Boucherie -->
+        <div class="carousel-item">
+          <h3 class="category-title text-center mb-4 text-golden bg-dark-opacity">Poissonnerie & Boucherie</h3>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card shadow border-0">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3d/67/00/flores-pescados-frutas.jpg?w=1200&h=-1&s=1" 
+                     class="card-img-top rounded-top" alt="Fruit and Vegetables">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-golden">Fruit & Vegetable Market</h5>
+                  <a href="https://maps.app.goo.gl/u6nxLxBYz5HQwrpA9?g_st=com.google.maps.preview.copy" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-text bg-dark-opacity text-golden px-3 py-1">Précédent</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+        <span class="carousel-control-text bg-dark-opacity text-golden px-3 py-1">Suivant</span>
+      </button>
     </div>
   </div>
 </section>
+
 
 
 
