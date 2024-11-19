@@ -319,3 +319,19 @@ h2 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+  .text-golden {
+    color: #FFD700; /* Doré */
+  }
+
+  .bg-dark-opacity {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir avec opacité */
+    border-radius: 5px; /* Coins arrondis pour un effet élégant */
+  }
+
+  .carousel-control-text {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+  }
