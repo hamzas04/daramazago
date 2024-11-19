@@ -1,582 +1,664 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu d'Informations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .menu {
-            background-color: #EBACA2;
-            color: #4A919E;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .menu h2 {
-            margin: 0;
-            padding: 10px 0;
-            cursor: pointer;
-            border-bottom: 1px solid #4A919E;
-            color: white;
-        }
-        .menu ul {
-            list-style-type: none;
-            padding: 0;
-            display: none;
-            margin: 10px 0;
-        }
-        .menu ul li {
-            margin: 8px 0;
-            padding: 8px;
-            background-color: #4A919E;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            color: white;
-        }
-        .menu ul li:hover {
-            background-color: white;
-            color: black;
-            cursor: pointer;
-        }
-        .content {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        .section {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-			flex-direction: column;
-        }
-        .section-content {
-            max-width: 60%;
-        }
-        .section h3 {
-            color: #3498db;
-        }
-        .section p, .section a {
-            margin: 10px 0;
-            text-align: left;
-        }
-        .link {
-            color: #e74c3c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .section img {
-            width: 300px;
-            height: auto;
-            border-radius: 5px;
-            margin-left: 0;
-        }
-	.image-container {
-			display: flex; /* Utilise flexbox pour aligner les images */
-			justify-content: center; /* Centre les images horizontalement */
-			gap: 10px; /* Ajoute un espace entre les images */
-	}
-
-	img {
-			max-width: 100%; /* Assure que l'image ne dépasse pas la largeur de son conteneur */
-			height: auto; /* Conserve le ratio d'aspect de l'image */
-	}
-	    /* Styles pour petits écrans */
-    @media (max-width: 768px) {
-        .section {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .section-content {
-            max-width: 100%;
-            text-align: center;
-            margin-right: 0;
-        }
-
-        .image-container {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .image-container img {
-            max-width: 45%;
-            margin: 5px;
-        }
-    }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'Informations - Hôtes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>Welcome Guide for our dear guest</h1>
-    <p>Salam Alaykum! Here are some tips for your stay:</p>
-	
-    <div class="menu">
-        <h2 onclick="toggleMenu('ville')">Informations sur la ville</h2>
-        <ul id="ville">
-            <li onclick="changeContent('histoire')">Histoire & Culture</li>		
-            <li onclick="changeContent('soukMedina')">SOUK MEDINA</li>
-            <li onclick="changeContent('magasin')">MAGASIN COSTUME TRADITIONNEL</li>
-            <li onclick="changeContent('plage')">Plage</li>
-            <li onclick="changeContent('parc')">Parc</li>
-            <li onclick="changeContent('mosquee')">MOSQUÉE POUR LE VENDREDI</li>
-            <li onclick="changeContent('boulangerie')">BOULANGERIE</li>
-            <li onclick="changeContent('epicerie')">Épicerie, alimentation générale</li>
-            <li onclick="changeContent('miniMarket')">Mini-Market</li>
-            <li onclick="changeContent('superMarket')">Super-Market</li>
-            <li onclick="changeContent('poissonnerie')">Poissonnerie & Boucherie</li>
+  <!-- Header -->
+  <header class="bg-gradient-primary text-white py-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="logo">Dar Mazagão</h1>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a href="#city-info" class="nav-link text-white">Ville</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link text-white">Services</a></li>
+          <li class="nav-item"><a href="#restaurants" class="nav-link text-white">Restaurants</a></li>
+          <li class="nav-item"><a href="#apartment-info" class="nav-link text-white">Appartement</a></li>
         </ul>
-        
-        <h2 onclick="toggleMenu('restaurants')">Restaurants et cafés</h2>
-        <ul id="restaurants">
-            <li onclick="changeContent('recommandations')">Manngé poisson? Pourquoi pas</li>
-            <li onclick="changeContent('typesCuisine')">SHWA (grillade) & Tajine</li>
-            <li onclick="changeContent('cafeView')">Café & restaurant front mer</li>
-	    <li onclick="changeContent('fastFood')">Near fast food (less 4min walk)</li>
-        </ul>
-        
-        <h2 onclick="toggleMenu('appartement')">Informations sur l'appartement</h2>
-        <ul id="appartement">
-            <li onclick="changeContent('description')">Description de l'appartement</li>
-            <li onclick="changeContent('wifi')">Wifi</li>
-            <li onclick="changeContent('acces')">Accès et modalités d'arrivée</li>
-            <li onclick="toggleMenu('regles')">Règles de la maison</li>
-        </ul>
+      </nav>
+    </div>
+  </header>
 
-	<!-- Sous-menu pour les règles de la maison -->
-	<ul id="regles" style="display: none; padding-left: 20px;">
-	    <li onclick="changeContent('visiteurs')">Les visiteurs non enregistrés</li>
-	    <li onclick="changeContent('respect')">Respect des lieux</li>
-	    <li onclick="changeContent('proprete')">Propreté</li>
-	    <li onclick="changeContent('fumeurs')">Fumeurs</li>
-	    <li onclick="changeContent('animaux')">Animaux</li>
-	    <li onclick="changeContent('bruit')">Bruit</li>
-	    <li onclick="changeContent('securite')">Sécurité</li>
-	    <li onclick="changeContent('equipements')">Utilisation des équipements</li>
-	    <li onclick="changeContent('mgharba')">Pour les marocains/les personnes d'origine marocain avec passeport étranger</li>
-	    <li onclick="changeContent('contact')">Contact</li>
-	</ul>
+  <!-- Hero Section -->
+  <section class="hero-section text-center text-white d-flex align-items-center" style="background: url('https://cdn.halalstatic.com/2023%2F02%2F23%2F15%2F58%2F35%2F25bb664a-4e87-4e5a-946e-fffbbcedba05%2Fel-jadidida_halalbooking.png') no-repeat center/cover; height: 70vh;">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Découvrez la ville et ses trésors</h1>
+      <p class="lead">Explorez les meilleures expériences locales</p>
+    </div>
+  </section>
+
+  <!-- Section 1: Informations sur la ville -->
+  <section id="city-info" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">Informations sur la Ville</h2>
+    </div>
+  </section>
+ 
+ 
+ 	<!-- Histoire & Culture Section -->
+	<section id="histoire-culture" class="py-5 bg-light">
+	  <div class="container">
+		<h2 class="text-center text-primary mb-5">Histoire & Culture</h2>
+		<div class="row justify-content-center align-items-center">
+		  <!-- El Jadida Card -->
+		  <div class="col-md-4">
+			<div class="card shadow h-100 text-center">
+			  <img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" 
+				   class="card-img-top" alt="El Jadida">
+			  <div class="card-body">
+				<h5 class="card-title text-primary">El Jadida</h5>
+				<p class="card-text">Explore the history of El Jadida.</p>
+				<button class="btn btn-outline-primary" onclick="showItinerary('eljadida')">Voir Itinéraire</button>
+			  </div>
+			</div>
+		  </div>
+
+		  <!-- Map Section -->
+		  <div class="col-md-4" id="map-container">
+			<div class="text-center p-3 bg-white border rounded shadow" id="map-placeholder">
+			  <p class="text-muted">Cliquez sur une carte pour afficher l'itinéraire.</p>
+			</div>
+		  </div>
+
+		  <!-- Azemour Card -->
+		  <div class="col-md-4">
+			<div class="card shadow h-100 text-center">
+			  <img src="https://daytrip2.imgix.net/azemmour1.jpg?auto=compress%2Cenhance%2Cformat&w=768&h=560&fit=crop&q=30" 
+				   class="card-img-top" alt="Azemour">
+			  <div class="card-body">
+				<h5 class="card-title text-primary">Azemour</h5>
+				<p class="card-text">Discover the town of Azemour.</p>
+				<button class="btn btn-outline-primary" onclick="showItinerary('azemour')">Voir Itinéraire</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+
+
+
+<section id="attractions" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-primary mb-5">Explorer les Sites Locaux</h2>
+    <div class="row gx-4 gy-5">
+      <!-- Card: Souk Medina -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+          <img src="https://i.imgur.com/Txv3nco.jpeg" class="card-img-top rounded-top" alt="SOUK MEDINA">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Souk Medina</h5>
+            <p class="card-text">Un marché animé rempli de couleurs et de saveurs.</p>
+            <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="btn btn-outline-primary w-100" target="_blank">Voir la Localisation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Magasin Costume Traditionnel -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+          <img src="https://i.imgur.com/ifP8fPx.jpeg" class="card-img-top rounded-top" alt="MAGASIN COSTUME TRADITIONNEL">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Magasin Costume Traditionnel</h5>
+            <p class="card-text">Découvrez la mode traditionnelle unique de la région.</p>
+            <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="btn btn-outline-primary w-100" target="_blank">Voir la Localisation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Parc -->
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0">
+          <img src="https://i.imgur.com/KOb9XyY.jpeg" class="card-img-top rounded-top" alt="Parc Hassan II">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Parc Hassan II</h5>
+            <p class="card-text">Un espace vert idéal pour une promenade.</p>
+            <a href="https://maps.app.goo.gl/k36DoTKcbXaKE62P6" class="btn btn-outline-primary w-100" target="_blank">Voir la Localisation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+		  <!-- Section Mosquées-->
+
+<section id="mosques" class="py-5 bg-arabic-pattern">
+  <div class="container">
+    <h2 class="text-center text-white mb-5">Mosquées pour le Vendredi</h2>
+    <div class="row gy-5">
+      <!-- Mosquée Belhamdounia -->
+      <div class="col-md-4">
+        <div class="card shadow border-0">
+          <img src="https://lh3.googleusercontent.com/p/AF1QipNMOFTcPMUTxlYUrQAWj2tgNC8030Ok_9hlpHfU=s680-w680-h510" 
+               class="card-img-top rounded-top" alt="Mosquée Belhamdounia">
+          <div class="card-body text-center">
+            <h5 class="card-title text-golden">Mosquée Belhamdounia</h5>
+            <p class="card-text">Une mosquée incontournable pour la prière.</p>
+            <a href="https://maps.app.goo.gl/UQ1BERRxUVrFovbW9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+          </div>
+        </div>
+      </div>
+
+		<!-- Mosquée الإمام علي -->
+	<div class="col-md-4">
+	  <div class="card shadow border-0">
+		<!-- <div class="image-container"> -->
+		  <img src="https://lh3.googleusercontent.com/p/AF1QipO2D1L8fAFJ67YNremohA--0bJ3MXMTolqrZWge=s680-w680-h510" 
+			   class="card-img-top rounded-top" alt="Mosquée الإمام علي">
+		<!-- </div> -->
+		<div class="card-body text-center">
+		  <h5 class="card-title text-golden">Mosquée الإمام علي</h5>
+		  <p class="card-text">Une ambiance spirituelle unique.</p>
+		  <a href="https://maps.app.goo.gl/cg1zkyyuZyDe3NiH9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+		</div>
+	  </div>
+</div>
+
+
+      <!-- Grande Mosquée de Mazagane -->
+      <div class="col-md-4">
+        <div class="card shadow border-0">
+          <img src="https://thumbs.dreamstime.com/b/mosqu%C3%A9e-%C3%A0-el-jadida-maroc-23552014.jpg" 
+               class="card-img-top rounded-top" alt="Grande Mosquée de Mazagane">
+          <div class="card-body text-center">
+            <h5 class="card-title text-golden">Grande Mosquée de Mazagane</h5>
+            <p class="card-text">Un joyau historique de la région.</p>
+            <a href="https://maps.app.goo.gl/R6TdKiFT42oJ4JYt9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+  <section id="plages" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-primary mb-5">Plages à Découvrir</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <!-- Card: Plage Centre Ville -->
+      <div class="card shadow text-center" style="width: 18rem;" onclick="showBeachDetails('plage_centre')">
+        <img src="https://i.imgur.com/K1aotuR.jpeg" class="card-img-top" alt="Plage centre ville">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Plage Centre Ville</h5>
+          <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="btn btn-outline-primary" target="_blank">Localisation</a>
+        </div>
+      </div>
+
+      <!-- Card: Plage Deauville -->
+      <div class="card shadow text-center" style="width: 18rem;" onclick="showBeachDetails('plage_deauville')">
+        <img src="https://i.imgur.com/HJkGlq3.jpeg" class="card-img-top" alt="Plage Deauville El Jadia">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Plage Deauville</h5>
+          <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="btn btn-outline-primary" target="_blank">Localisation</a>
+        </div>
+      </div>
+
+      <!-- Card: Plage Haouzia -->
+      <div class="card shadow text-center" style="width: 18rem;" onclick="showBeachDetails('plage_haouzia')">
+        <img src="https://i.imgur.com/NKkwRQ9.jpeg" class="card-img-top" alt="Plage haouzia">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Plage Haouzia</h5>
+          <a href="https://maps.app.goo.gl/3dGNSGXRFkso3Qnc7" class="btn btn-outline-primary" target="_blank">Localisation</a>
+        </div>
+      </div>
+
+      <!-- Card: Plage Sidi Bouzid -->
+      <div class="card shadow text-center" style="width: 18rem;" onclick="showBeachDetails('plage_sidi')">
+        <img src="https://i.imgur.com/6uGQKY7.jpeg" class="card-img-top" alt="Plage Sidi Bouzid">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Plage Sidi Bouzid</h5>
+          <a href="https://maps.app.goo.gl/S2HLGC386Sa2qfwHA" class="btn btn-outline-primary" target="_blank">Localisation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="container my-5">
+  <h2 class="text-center text-golden mb-4">Restaurants et Cafés</h2>
+  
+  <!-- Onglets -->
+  <ul class="nav nav-tabs justify-content-center" id="restaurantTabs" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" id="poisson-tab" data-bs-toggle="tab" data-bs-target="#poisson" type="button" role="tab">
+        Poisson
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="grillades-tab" data-bs-toggle="tab" data-bs-target="#grillades" type="button" role="tab">
+        Grillades & Tajines
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="vuemer-tab" data-bs-toggle="tab" data-bs-target="#vuemer" type="button" role="tab">
+        Vue Mer
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="fastfood-tab" data-bs-toggle="tab" data-bs-target="#fastfood" type="button" role="tab">
+        Fast Food
+      </button>
+    </li>
+  </ul>
+
+  <!-- Contenu des onglets -->
+  <div class="tab-content mt-4" id="restaurantTabsContent">
+
+    <!-- Poisson -->
+    <div class="tab-pane fade show active" id="poisson" role="tabpanel">
+      <div class="row g-4">
+        <!-- Exemple d'un restaurant -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMg-A0Em8D1qaC-MEKraMKAeW1eQb7jnaad3lhT=s680-w680-h510" class="card-img-top" alt="MUCHO">
+            <div class="card-body">
+              <h5 class="card-title text-golden">MUCHO</h5>
+              <p class="card-text">Découvrez des plats savoureux à base de poisson frais.</p>
+              <a href="https://maps.app.goo.gl/wCPNchCviZBLF2zT9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoutez les autres restaurants ici -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://res.cloudinary.com/farouk/image/upload/t_small/AS5WE8K1YL" class="card-img-top" alt="Snack El Bahri">
+            <div class="card-body">
+              <h5 class="card-title text-golden">Snack El Bahri</h5>
+              <p class="card-text">Découvrez des plats savoureux à base de poisson frais.</p>
+              <a href="https://maps.app.goo.gl/9H1iD872VJQYSFe8A" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+		
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://c7.alamy.com/compfr/mcgyy3/l-heure-du-dejeuner-restaurant-terrasses-marche-central-le-marche-central-casablanca-maroc-afrique-du-nord-mcgyy3.jpg" class="card-img-top" alt="Marché central">
+            <div class="card-body">
+              <h5 class="card-title text-golden">Marché central</h5>
+              <p class="card-text">Choisissez votre poisson frais, puis laissez-le griller ou frire dans les restaurants juste en face pour savourer un délicieux repas...</p>
+              <a href="https://maps.app.goo.gl/SzsZH7GE11K3KQdr8" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+		
+      </div>
     </div>
 
-    <div class="content" id="dynamicContent">
-        <h3>Bienvenue!</h3>
-        <p>Sélectionnez un sous-menu pour voir les informations ici.</p>
+    <!-- Grillades & Tajines -->
+    <div class="tab-pane fade" id="grillades" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipNWd3q1jHSQjGBBgQNHBSTgHGb9J9hLeXIv7Y_h=w300-h350-p-k-no" class="card-img-top" alt="Shwa">
+            <div class="card-body">
+              <h5 class="card-title text-golden">SHWA & Tajine</h5>
+              <p class="card-text">Viande fraîche et grillades savoureuses.</p>
+              <a href="https://maps.app.goo.gl/AdXegMjAYu1wEuc66" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoutez les autres restaurants ici -->
+		<div class="col-md-4">
+          <div class="card">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipPm4m6aK0FLT6RcqeeIgq9rodC5Vcjdmt2h9m_Y=w600-h321-p-k-no" class="card-img-top" alt="Tajine Beldi">
+            <div class="card-body">
+              <h5 class="card-title text-golden">Tajine Beldi</h5>
+              <p class="card-text">Tajine Beldi à la fôret.</p>
+              <a href="https://maps.app.goo.gl/tt1HgFcZkGu74SDD9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+		
+      </div>
     </div>
 
-    <script>
-        function toggleMenu(id) {
-            var menus = document.querySelectorAll('.menu ul');
-            menus.forEach(function(menu) {
-                if (menu.id !== id) {
-                    menu.style.display = "none";
-                }
-            });
-            var selectedMenu = document.getElementById(id);
-            selectedMenu.style.display = selectedMenu.style.display === "none" ? "block" : "none";
-        }
+    <!-- Vue Mer -->
+    <div class="tab-pane fade" id="vuemer" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4EUWyqoV914cib2zvXAGtUteo3z3cUZHBQw&s" class="card-img-top" alt="La plage">
+            <div class="card-body">
+              <h5 class="card-title text-golden">La Plage</h5>
+              <p class="card-text">Profitez d'une vue imprenable sur la mer.</p>
+              <a href="https://g.co/kgs/j52vucu" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoutez les autres restaurants ici -->
+		        <div class="col-md-4">
+          <div class="card">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipOYGThWWu0ChEFIqhogaeqM2CVnP1Kad0kgQHLI=w600-h988-p-k-no" class="card-img-top" alt="Chez Laura">
+            <div class="card-body">
+              <h5 class="card-title text-golden">Chez Laura</h5>
+              <p class="card-text">Profitez d'une vue imprenable sur la mer.</p>
+              <a href="https://maps.app.goo.gl/CV33f2j55aKvZ52t7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+		
+		
+      </div>
+    </div>
 
-        function changeContent(section) {
-            var content = document.getElementById("dynamicContent");
-            switch (section) {
-                case 'soukMedina':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>SOUK MEDINA</h3>
-                                <a href="https://maps.app.goo.gl/at2f1kzLR2XYC3FP7" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/Txv3nco.jpeg" alt="SOUK MEDINA">
-                        </div>
-                    `;
-                    break;
-                case 'magasin':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>MAGASIN COSTUME TRADITIONNEL</h3>
-                                <a href="https://maps.app.goo.gl/6gUawfXKT2MJqDHX9" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/ifP8fPx.jpeg" alt="MAGASIN COSTUME TRADITIONNEL">
-                        </div>
-                    `;
-                    break;
-                case 'plage':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Plage centre ville:</h3>
-                                <a href="https://maps.app.goo.gl/ZyNEiu3oXFLCDmzy7" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/K1aotuR.jpeg" alt="Plage centre ville">
-                        </div>
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Plage Deauville El Jadia:</h3>
-                                <a href="https://maps.app.goo.gl/pL5yZvUvi2GUAMTJ7" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/HJkGlq3.jpeg" alt="Plage Deauville El Jadia">
-                        </div>
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Plage haouzia:</h3>
-                                <a href="https://maps.app.goo.gl/3dGNSGXRFkso3Qnc7" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/NKkwRQ9.jpeg" alt="Plage haouzia">
-                        </div>
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Plage Sidi Bouzid:</h3>
-                                <a href="https://maps.app.goo.gl/S2HLGC386Sa2qfwHA" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/6uGQKY7.jpeg" alt="Plage Sidi Bouzid">
-                        </div>
-                    `;
-                    break;
-				case 'parc':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Parc</h3>
-                                <a href="https://maps.app.goo.gl/k36DoTKcbXaKE62P6" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://i.imgur.com/KOb9XyY.jpeg" alt="Parc Hassan II">
-                        </div>
-                    `;
-                    break;
-				case 'boulangerie':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>La Tartine</h3>
-                                <a href="https://maps.app.goo.gl/aBvo42QByDHSkNQK9" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://lh3.googleusercontent.com/p/AF1QipO4T-nvq_bYZGTOwk_kEZciE18nnidcHoA6jd-9=s680-w680-h510" alt="La Tartine">
-                        </div>
-						                        <div class="section">
-                            <div class="section-content">
-                                <h3>Le Régale</h3>
-                                <a href="https://maps.app.goo.gl/N7LNjHj6AZsh2T1W6" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/53/90/33/patisserie-le-regal.jpg?w=900&h=500&s=1" alt="Le Régale">
-                        </div>
-                    `;
-                    break;
-				case 'mosquee':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Mosquée Belhamdounia</h3>
-                                <a href="https://maps.app.goo.gl/UQ1BERRxUVrFovbW9" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://lh3.googleusercontent.com/p/AF1QipNMOFTcPMUTxlYUrQAWj2tgNC8030Ok_9hlpHfU=s680-w680-h510" alt="Mosquée Belhamdounia">
-                        </div>
-						                        <div class="section">
-                            <div class="section-content">
-                                <h3>Mosquée مسجد الإمام علي</h3>
-                                <a href="https://maps.app.goo.gl/cg1zkyyuZyDe3NiH9" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://lh3.googleusercontent.com/p/AF1QipO2D1L8fAFJ67YNremohA--0bJ3MXMTolqrZWge=s680-w680-h510" alt="Mosquée مسجد الإمام علي">
-                        </div>
-						</div>
-						<div class="section">
-                            <div class="section-content">
-                                <h3>La grande mosquée de Mazagane</h3>
-                                <a href="https://maps.app.goo.gl/R6TdKiFT42oJ4JYt9" class="link" target="_blank">Localisation</a>
-                            </div>
-						<img src="https://thumbs.dreamstime.com/b/mosqu%C3%A9e-%C3%A0-el-jadida-maroc-23552014.jpg" alt="La grande mosquée de Mazagane">
-                        </div>
-                    `;
-                    break;
-				case 'poissonnerie':
-                    content.innerHTML = `
-						 <div class="section">
-								<div class="section-content">
-									<h2>Fruit and Vegetables</h2>
-									<p>Find fresh fruits and vegetables here:</p>
-									<a href="https://maps.app.goo.gl/u6nxLxBYz5HQwrpA9?g_st=com.google.maps.preview.copy" class="link" target="_blank">Fruit & Vegetable Market</a>
-								</div>
-								<img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3d/67/00/flores-pescados-frutas.jpg?w=1200&h=-1&s=1" alt="Fruit and Vegetables">
-							</div>
-                    `;
-                    break;
-				case 'superMarket':
-                    content.innerHTML = `
-						 <div class="section">
-								<div class="section-content">
-									<h2>Super Market</h2>
-									<p></p>
-									<a href="https://maps.app.goo.gl/toMxYkme4cm5Xi6A7" class="link" target="_blank">Marjane Market</a>
-								</div>
-								<img src="https://ot-eljadida.com/uploads/images/visiter/thumbs/6179729809b45_marjane-market-el-jadida-800x533.png" alt="Marjane Market">
-							</div>
-                    `;
-                    break;
-				case 'miniMarket':
-                    content.innerHTML = `
-						 <div class="section">
-								<div class="section-content">
-									<h2>Mini Market</h2>
-									<p></p>
-									<a href="https://g.co/kgs/5LLGfst" class="link" target="_blank">BIM Store</a>
-								</div>
-								<img src="https://www.challenge.ma/wp-content/uploads/2013/04/BIM-300x225.jpg" alt="BIM Store">
-							</div>
-                    `;
-                    break;
-				case 'epicerie':
-                    content.innerHTML = `
-						 <div class="section">
-								<div class="section-content">
-									<h2>Zrigovich alimentation</h2>
-									<p></p>
-									<a href="https://maps.app.goo.gl/LhJECoEnuJsQ24si8" class="link" target="_blank">Zrigovich alimentation</a>
-								</div>
-								<img src="" alt="Zrigovich alimentation">
-							</div>
-						 <div class="section">
-								<div class="section-content">
-									<h2>Alimentation Asmar</h2>
-									<p></p>
-									<a href="https://maps.app.goo.gl/GxpYtQ3U3MuKx3jB7" class="link" target="_blank">Alimentation Asmar</a>
-								</div>
-								<img src="" alt="Alimentation Asmar">
-							</div>
-                    `;
-                    break;
-				case 'histoire':
-                    content.innerHTML = `
-							<div class="section">
-								<div class="section-content">
-									<h2>Historical Place</h2>
-									<p>Explore the history of El Jadida:</p>
-									<a href="https://maps.app.goo.gl/3yam2oJGnX6QVw1o8?g_st=com.google.maps.preview.copy" class="link" target="_blank">El Jadida</a>
-								</div>
-								<img src="https://crtasablanca.s3.eu-west-1.amazonaws.com/content/uploads/20220728133435/hero_poi_cite-portugaise.jpg" alt="Historical Place">
-							</div>
+    <!-- Fast Food -->
+    <div class="tab-pane fade" id="fastfood" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://lh5.googleusercontent.com/p/AF1QipPKlHiXnWYSE0-Norg1gjQ1lSF1eLcUH8F1USvr=w600-h988-p-k-no" class="card-img-top" alt="Le FIGUIG Mazagan">
+            <div class="card-body">
+              <h5 class="card-title text-golden">Le FIGUIG Mazagan</h5>
+              <p class="card-text">Délices rapides à savourer près de chez vous.</p>
+              <a href="https://maps.app.goo.gl/KpfpKV4ZxJargHyb8" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+            </div>
+          </div>
+        </div>
+        <!-- Ajoutez les autres restaurants ici -->
+      </div>
+    </div>
 
-							<div class="section">
-								<div class="section-content">
-									<h2>Walking Itinerary - El Jadida</h2>
-									<p>Enjoy a scenic walk around El Jadida:</p>
-									<a href="https://fr.wikiloc.com/itineraires-marcher/el-yadida-24284418" class="link" target="_blank">El Jadida Itinerary</a>
-								</div>
-								<img src="https://i.imgur.com/AeujXL8.jpeg" alt="El Jadida Itinerary">
-							</div>
+  </div>
+</div>
 
-							<div class="section">
-								<div class="section-content">
-									<h2>Azemour</h2>
-									<p>Discover the town of Azemour:</p>
-									<a href="https://maps.app.goo.gl/6EsSHbAL3oBYgU1f7?g_st=com.google.maps.preview.copy" class="link" target="_blank">Azemour</a>
-								</div>
-								<img src="https://daytrip2.imgix.net/azemmour1.jpg?auto=compress%2Cenhance%2Cformat&w=768&h=560&fit=crop&q=30" alt="Azemour">
-							</div>
 
-							<div class="section">
-								<div class="section-content">
-									<h2>Walking Itinerary - Azemour</h2>
-									<p>Explore Azemour's unique paths:</p>
-									<a href="https://fr.wikiloc.com/itineraires-marcher/azemmour-24294473" class="link" target="_blank">Azemour Itinerary</a>
-								</div>
-								<img src="https://i.imgur.com/YdZutIr.jpeg" alt="Azemour Itinerary">
-							</div>
-                    `;
-                    break;
-                case 'recommandations':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Recommandations de restaurants</h3>
-                                <p>Voici quelques recommandations de restaurants populaires...</p>
-                            </div>
-                        </div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>MUCHO</h2>
-									<a href="https://maps.app.goo.gl/wCPNchCviZBLF2zT9" class="link" target="_blank">Mucho Localisation</a>
-								</div>
-								<img src="https://lh3.googleusercontent.com/p/AF1QipMg-A0Em8D1qaC-MEKraMKAeW1eQb7jnaad3lhT=s680-w680-h510" alt="MUCHO">
-						</div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>Snack El Bahri </h2>
 
-									<a href="https://maps.app.goo.gl/9H1iD872VJQYSFe8A" class="link" target="_blank">Snack El Bahri</a>
-								</div>
-								<img src="https://res.cloudinary.com/farouk/image/upload/t_small/AS5WE8K1YL" alt="Snack El Bahri">
-						</div>
-						
-												<div class="section">
-								<div class="section-content">
-									<h2>Marché central </h2>
-                                <p>Choisissez votre poisson frais, puis laissez-le griller ou frire dans les restaurants juste en face pour savourer un délicieux repas...</p>
-									<a href="https://maps.app.goo.gl/SzsZH7GE11K3KQdr8" class="link" target="_blank">Marché central</a>
-								</div>
-								<img src="https://c7.alamy.com/compfr/mcgyy3/l-heure-du-dejeuner-restaurant-terrasses-marche-central-le-marche-central-casablanca-maroc-afrique-du-nord-mcgyy3.jpg" alt="Marché central">
-						</div>
-                    `;
-                    break;
-                case 'typesCuisine':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Recommandations de restaurants</h3>
-                                <p>Voici quelques recommandations de restaurants populaires...</p>
-                            </div>
-                        </div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>SHWA & Tajine</h2>
-									<p>Viande fraîche directement de la boucherie ! Choisissez votre pièce préférée et laissez-vous séduire par l’odeur alléchante d'une grillade savoureuse. Une expérience gourmande à ne pas manquer !...</p>
-									<a href="https://maps.app.goo.gl/AdXegMjAYu1wEuc66" class="link" target="_blank">Shwa & Tajine</a>
-								</div>
-								<div class="image-container">
-									<img src="https://lh5.googleusercontent.com/p/AF1QipNWd3q1jHSQjGBBgQNHBSTgHGb9J9hLeXIv7Y_h=w600-h650-p-k-no" alt="Shwa">
-									<img src="https://lh5.googleusercontent.com/p/AF1QipPDKdbLYMK9q2tav5-MWZUNNvZUvA3zNiXSYSRJ=w600-h988-p-k-no" alt="Tajine">
-								</div>
-						</div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>Tajine Beldi à la fôret </h2>
 
-									<a href="https://maps.app.goo.gl/tt1HgFcZkGu74SDD9" class="link" target="_blank">Tajine Beldi</a>
-								</div>
-								
-								<div class="image-container">
-								<img src="https://lh5.googleusercontent.com/p/AF1QipOXjfp7PiiuEudoY94LYubp5bYjOCzbWAxInnTy=w600-h988-p-k-no" alt="Tajine Beldi">
-								<img src="https://lh5.googleusercontent.com/p/AF1QipPm4m6aK0FLT6RcqeeIgq9rodC5Vcjdmt2h9m_Y=w600-h321-p-k-no" alt="Tajine Beldi">
-								<img src="https://lh5.googleusercontent.com/p/AF1QipM_eFPjb4-rxQumrohO_Ltl3Cj6GOtWf8d2ucPf=w600-h321-p-k-no" alt="Tajine Beldi">
-								</div>
-						</div>
-						
 
-                    `;
-                    break;
-                case 'cafeView':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Recommandations de restaurants</h3>
-                                <p>Voici quelques recommandations de restaurants populaires...</p>
-                            </div>
-                        </div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>La plage</h2>
-									<a href="https://g.co/kgs/j52vucu" class="link" target="_blank">La Plage Localisation</a>
-								</div>
-								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4EUWyqoV914cib2zvXAGtUteo3z3cUZHBQw&s" alt="La plage">
-						</div>
-						
-						<div class="section">
-								<div class="section-content">
-									<h2>Chez Laura </h2>
 
-									<a href="https://maps.app.goo.gl/CV33f2j55aKvZ52t7" class="link" target="_blank">Chez Laura</a>
-								</div>
-								<img src="https://lh5.googleusercontent.com/p/AF1QipOYGThWWu0ChEFIqhogaeqM2CVnP1Kad0kgQHLI=w600-h988-p-k-no" alt="chez Laura">
-						</div>
-						
 
-                    `;
-                    break;
-                case 'wifi':
-                    content.innerHTML = `
-						<div class="section">
-							<div class="section-content">
-								<h2>WiFi Access</h2>
-								<p><strong>WiFi Password:</strong> 4DFHDbQR</p>
-							</div>
-							<img src="https://i.imgur.com/IN7NIkh.jpeg" alt="WiFi Name">
-						</div>
-						
-						<div class="section">
-							<div class="section-content">
-								<h2>WiFi EXTENDER Access</h2>
-								<p><strong>WiFi Password:</strong> 4DFHDbQR</p>
-							</div>
-							<img src="https://i.imgur.com/L2UgBnI.png" alt="WiFi Name">
-						</div>
-                    `;
-                    break;
-                case 'description':
-                    content.innerHTML = `
-                        <div class="section">
-                            <div class="section-content">
-                                <h3>Description de l'appartement</h3>
-                                <p>Découvrez le confort de notre appartement avec toutes les commodités nécessaires...</p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                case 'fastFood':
-                    content.innerHTML = `
-						<div class="section">
-								<div class="section-content">
-									<h2>Le FIGUIG Mazagan </h2>
 
-									<a href="https://maps.app.goo.gl/KpfpKV4ZxJargHyb8" class="link" target="_blank">Le FIGUIG Mazagan</a>
-								</div>
-								
-								<div class="image-container">
-								<img src="https://lh5.googleusercontent.com/p/AF1QipPKlHiXnWYSE0-Norg1gjQ1lSF1eLcUH8F1USvr=w600-h988-p-k-no" alt="Le FIGUIG Mazagan">
-							
-								</div>
-						</div>
-                    `;
-                    break;
-		case 'visiteurs':
-	            content.innerHTML = "<h3>Les visiteurs non enregistrés</h3><p>Pour des raisons de sécurité, seuls les visiteurs enregistrés sont autorisés à entrer.</p>";
-	            break;
-	        case 'respect':
-	            content.innerHTML = "<h3>Respect des lieux</h3><p>Merci de respecter l'appartement et les équipements fournis.</p>";
-	            break;
-	        case 'proprete':
-	            content.innerHTML = "<h3>Propreté</h3><p>Veuillez garder l'appartement propre et ordonné pendant votre séjour.</p>";
-	            break;
-	        case 'fumeurs':
-	            content.innerHTML = "<h3>Fumeurs</h3><p>Il est strictement interdit de fumer dans l'appartement.</p>";
-	            break;
-	        case 'animaux':
-	            content.innerHTML = "<h3>Animaux</h3><p>Les animaux ne sont pas autorisés dans l'appartement.</p>";
-	            break;
-	        case 'bruit':
-	            content.innerHTML = "<h3>Bruit</h3><p>Veuillez respecter le calme et ne pas faire de bruit excessif, surtout la nuit.</p>";
-	            break;
-	        case 'securite':
-	            content.innerHTML = "<h3>Sécurité</h3><p>Assurez-vous de bien fermer les portes et fenêtres lorsque vous quittez l'appartement.</p>";
-	            break;
-	        case 'equipements':
-	            content.innerHTML = "<h3>Utilisation des équipements</h3><p>Utilisez les équipements avec soin pour éviter toute dégradation.</p>";
-	            break;
-	        case 'contact':
-	            content.innerHTML = "<h3>Contact</h3><p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>";
-	            break;
-		case 'mgharba':
-	            content.innerHTML = "<h3>Acte de mariage</h3><p>🇲🇦👩‍❤️‍👨Nous tenons à vous informer qu'il s'agit d'un établissement soumis à la réglementation marocaine. Par conséquent, les couples dont l'une des personnes possède un passeport marocain ou de parents marocains devront présenter un acte de mariage valide. Nous vous remercions de votre compréhension et restons à votre disposition pour toute question.</p>";
-	            break;
-                default:
-                    content.innerHTML = "<h3>Bienvenue!</h3><p>Sélectionnez un sous-menu pour voir les informations ici.</p>";
-            }
-        }
-    </script>
+<!-- Continuation du code existant -->
+<section id="services-commerces" class="py-5">
+  <div class="container">
+    <h2 class="text-center text-golden mb-5">Services et Commerces de Quartier</h2>
+    
+    <!-- Grid Container -->
+    <div class="row g-4">
+      
+      <!-- Boulangeries -->
+      <div class="col-12">
+        <h3 class="category-title">Boulangeries</h3>
+        <div class="row g-3">
+          <!-- La Tartine -->
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <img src="https://lh3.googleusercontent.com/p/AF1QipO4T-nvq_bYZGTOwk_kEZciE18nnidcHoA6jd-9=s680-w680-h510" 
+                   class="card-img-top rounded-top" alt="La Tartine">
+              <div class="card-body text-center">
+                <h5 class="card-title">La Tartine</h5>
+                <a href="https://maps.app.goo.gl/aBvo42QByDHSkNQK9" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+          <!-- Le Régale -->
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/53/90/33/patisserie-le-regal.jpg?w=900&h=500&s=1" 
+                   class="card-img-top rounded-top" alt="Le Régale">
+              <div class="card-body text-center">
+                <h5 class="card-title">Le Régale</h5>
+                <a href="https://maps.app.goo.gl/N7LNjHj6AZsh2T1W6" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Épiceries -->
+      <div class="col-12">
+        <h3 class="category-title">Épiceries</h3>
+        <div class="row g-3">
+          <!-- Zrigovich Alimentation -->
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <div class="card-body text-center">
+                <h5 class="card-title">Zrigovich Alimentation</h5>
+                <a href="https://maps.app.goo.gl/LhJECoEnuJsQ24si8" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+          <!-- Alimentation Asmar -->
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <div class="card-body text-center">
+                <h5 class="card-title">Alimentation Asmar</h5>
+                <a href="https://maps.app.goo.gl/GxpYtQ3U3MuKx3jB7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini-Market -->
+      <div class="col-12">
+        <h3 class="category-title">Mini-Market</h3>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <img src="https://www.challenge.ma/wp-content/uploads/2013/04/BIM-300x225.jpg" 
+                   class="card-img-top rounded-top" alt="BIM Store">
+              <div class="card-body text-center">
+                <h5 class="card-title">BIM Store</h5>
+                <a href="https://g.co/kgs/5LLGfst" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Super-Market -->
+      <div class="col-12">
+        <h3 class="category-title">Super-Market</h3>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <img src="https://ot-eljadida.com/uploads/images/visiter/thumbs/6179729809b45_marjane-market-el-jadida-800x533.png" 
+                   class="card-img-top rounded-top" alt="Marjane Market">
+              <div class="card-body text-center">
+                <h5 class="card-title">Marjane Market</h5>
+                <a href="https://maps.app.goo.gl/toMxYkme4cm5Xi6A7" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poissonnerie & Boucherie -->
+      <div class="col-12">
+        <h3 class="category-title">Poissonnerie & Boucherie</h3>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card shadow border-0">
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/3d/67/00/flores-pescados-frutas.jpg?w=1200&h=-1&s=1" 
+                   class="card-img-top rounded-top" alt="Fruit and Vegetables">
+              <div class="card-body text-center">
+                <h5 class="card-title">Fruit & Vegetable Market</h5>
+                <a href="https://maps.app.goo.gl/u6nxLxBYz5HQwrpA9?g_st=com.google.maps.preview.copy" class="btn btn-outline-golden" target="_blank">Voir la Localisation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Section 4: Informations sur l'appartement -->
+
+<!-- Section protégée par mot de passe -->
+<section id="infos-appartement" class="py-5 bg-light">
+  <div class="container">
+    <!-- Titre principal -->
+    <h2 class="text-center text-golden mb-4">Informations sur l'appartement</h2>
+    
+    <!-- Champ de mot de passe -->
+    <div id="password-prompt" class="text-center p-4 shadow-sm rounded bg-white">
+      <p class="lead">Veuillez entrer le mot de passe pour accéder à cette section :</p>
+      <input type="password" id="password-input" placeholder="Mot de passe" class="form-control w-50 mx-auto mb-3 border-golden">
+      <button class="btn btn-outline-golden px-4 py-2" onclick="checkPassword()">Valider</button>
+      <p id="error-message" class="text-danger mt-3" style="display: none;">Mot de passe incorrect.</p>
+    </div>
+    
+    <!-- Contenu protégé -->
+    <div id="protected-content" class="mt-5" style="display: none;">
+      <!-- Carte contenant les sections -->
+      <div class="row">
+        <!-- WiFi Section -->
+		<div class="col-md-6 mb-4">
+		  <div class="card shadow border-0">
+			<!-- Image avec les styles adaptés -->
+			<img src="https://i.imgur.com/IN7NIkh.jpeg" class="card-img-top" alt="WiFi">
+			<div class="card-body">
+			  <h5 class="card-title text-golden">WiFi Principal</h5>
+			  <p class="card-text"><strong>Mot de passe :</strong> 4DFHDbQR</p>
+			</div>
+		  </div>
+		</div>
+
+        
+        <!-- WiFi Extender -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow border-0">
+            <img src="https://i.imgur.com/L2UgBnI.png" class="card-img-top" alt="WiFi Extender">
+            <div class="card-body">
+              <h5 class="card-title text-golden">WiFi Extender</h5>
+              <p class="card-text"><strong>Mot de passe :</strong> 4DFHDbQR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Règles de la maison -->
+      <div class="rules-section shadow-sm p-4 rounded bg-white mt-4">
+        <h4 class="text-center text-golden mb-4">Règles de la maison</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" onclick="changeContent('visiteurs')">Les visiteurs non enregistrés</li>
+          <li class="list-group-item" onclick="changeContent('respect')">Respect des lieux</li>
+          <li class="list-group-item" onclick="changeContent('proprete')">Propreté</li>
+          <li class="list-group-item" onclick="changeContent('fumeurs')">Fumeurs</li>
+          <li class="list-group-item" onclick="changeContent('animaux')">Animaux</li>
+          <li class="list-group-item" onclick="changeContent('bruit')">Bruit</li>
+          <li class="list-group-item" onclick="changeContent('securite')">Sécurité</li>
+          <li class="list-group-item" onclick="changeContent('equipements')">Utilisation des équipements</li>
+          <li class="list-group-item" onclick="changeContent('mgharba')">Pour les marocains</li>
+          <li class="list-group-item" onclick="changeContent('contact')">Contact</li>
+        </ul>
+        <div id="content" class="mt-4 text-muted">
+          <!-- Contenu dynamique des règles -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="py-3 bg-dark text-white text-center">
+    <p>&copy; 2024 Dar Mazagão. Tous droits réservés.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+	function showItinerary(place) {
+	  const mapPlaceholder = document.getElementById('map-placeholder');
+
+	  // Clear previous content
+	  mapPlaceholder.innerHTML = '';
+
+	  // Add dynamic content
+	  if (place === 'eljadida') {
+		mapPlaceholder.innerHTML = `
+		  <img src="https://i.imgur.com/AeujXL8.jpeg" alt="El Jadida Itinerary">
+		  <h5 class="text-primary">Itinéraire : El Jadida</h5>
+		  <p class="text-muted">Découvrez les plus beaux chemins autour de la ville.</p>
+		  <a href="https://fr.wikiloc.com/itineraires-marcher/el-yadida-24284418" target="_blank" class="btn btn-primary">
+			Ouvrir l'itinéraire
+		  </a>
+		`;
+	  } else if (place === 'azemour') {
+		mapPlaceholder.innerHTML = `
+		  <img src="https://i.imgur.com/YdZutIr.jpeg" alt="Azemour Itinerary">
+		  <h5 class="text-primary">Itinéraire : Azemour</h5>
+		  <p class="text-muted">Explorez les sentiers uniques d'Azemour.</p>
+		  <a href="https://fr.wikiloc.com/itineraires-marcher/azemmour-24294473" target="_blank" class="btn btn-primary">
+			Ouvrir l'itinéraire
+		  </a>
+		`;
+	  }
+	}
+
+</script>
+
+<script>
+  // Fonction pour vérifier le mot de passe
+  function checkPassword() {
+    const passwordInput = document.getElementById('password-input').value;
+    const errorMessage = document.getElementById('error-message');
+    const protectedContent = document.getElementById('protected-content');
+    
+    if (passwordInput === "2019") {
+      document.getElementById('password-prompt').style.display = 'none';
+      protectedContent.style.display = 'block';
+    } else {
+      errorMessage.style.display = 'block';
+    }
+  }
+
+  // Fonction pour changer le contenu des règles
+  function changeContent(rule) {
+    const content = document.getElementById('content');
+    switch (rule) {
+      case 'visiteurs':
+        content.innerHTML = "<h5 class='text-golden'>Les visiteurs non enregistrés</h5><p>Pour des raisons de sécurité, seuls les visiteurs enregistrés sont autorisés à entrer.</p>";
+        break;
+      case 'respect':
+        content.innerHTML = "<h5 class='text-golden'>Respect des lieux</h5><p>Merci de respecter l'appartement et les équipements fournis.</p>";
+        break;
+      case 'proprete':
+        content.innerHTML = "<h5 class='text-golden'>Propreté</h5><p>Veuillez garder l'appartement propre et ordonné pendant votre séjour.</p>";
+        break;
+      case 'fumeurs':
+        content.innerHTML = "<h5 class='text-golden'>Fumeurs</h5><p>Il est strictement interdit de fumer dans l'appartement.</p>";
+        break;
+      case 'animaux':
+        content.innerHTML = "<h5 class='text-golden'>Animaux</h5><p>Les animaux ne sont pas autorisés dans l'appartement.</p>";
+        break;
+      case 'bruit':
+        content.innerHTML = "<h5 class='text-golden'>Bruit</h5><p>Veuillez respecter le calme et ne pas faire de bruit excessif, surtout la nuit.</p>";
+        break;
+      case 'securite':
+        content.innerHTML = "<h5 class='text-golden'>Sécurité</h5><p>Assurez-vous de bien fermer les portes et fenêtres lorsque vous quittez l'appartement.</p>";
+        break;
+      case 'equipements':
+        content.innerHTML = "<h5 class='text-golden'>Utilisation des équipements</h5><p>Utilisez les équipements avec soin pour éviter toute dégradation.</p>";
+        break;
+      case 'mgharba':
+        content.innerHTML = "<h5 class='text-golden'>Acte de mariage</h5><p>🇲🇦 Les couples avec un passeport marocain doivent présenter un acte de mariage valide.</p>";
+        break;
+      case 'contact':
+        content.innerHTML = "<h5 class='text-golden'>Contact</h5><p>Si vous avez des questions, contactez-nous à tout moment.</p>";
+        break;
+      default:
+        content.innerHTML = "<p>Veuillez sélectionner une règle pour en savoir plus.</p>";
+    }
+  }
+</script>
+
 </body>
 </html>
